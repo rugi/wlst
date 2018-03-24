@@ -1,0 +1,16 @@
+# createdomain.py
+selectTemplate("Basic WebLogic Server Domain", "12.2.1")
+selectTemplate("Oracle Enterprise Manager-Restricted JRF", "12.2.1")
+loadTemplates()
+cd('Servers/AdminServer')
+set('ListenAddress','127.0.0.1')
+set('ListenPort', 7003)
+cd('/')
+cd('Security/base_domain/User/weblogic')
+cmo.setPassword('weblogic33')
+cd('/')
+setOption('OverwriteDomain', 'true')
+writeDomain('/domains/wlst_domain')
+closeTemplate()
+exit()
+
